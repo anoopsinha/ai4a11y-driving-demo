@@ -1,0 +1,16 @@
+{
+  "name": "ai4a11y-driving-demo",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A first-person driving game that adapts itself to the player — a toolkit host that writes its own surface, with audio-first play and voice control, written as a tutorial.",
+  "type": "module",
+  "engines": { "node": ">=20.12.0" },
+  "scripts": {
+    "start": "node server.js",
+    "vendor": "sh scripts/vendor.sh"
+  },
+  "dependencies": {
+    "@ai4a11y/toolkit": "file:vendor/ai4a11y-toolkit.tgz",
+    "@ai4a11y/tools": "file:vendor/ai4a11y-tools.tgz"
+  }
+}
