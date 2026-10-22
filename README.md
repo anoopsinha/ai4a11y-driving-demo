@@ -19,6 +19,8 @@ your own surface**.
 > The toolkit is a pre-alpha research project. Nothing here replaces
 > assistive technology, and the game is a demonstration, not a product.
 
+![The road ahead in the first left-hander at 200 mph, the car centred, a "gentle left" cue on screen, and the speed, lap and lap time in the corner](docs/screenshot.png)
+
 ## Run it
 
 Node 20.12+ and a Gemini API key ([aistudio.google.com/apikey](https://aistudio.google.com/apikey)).
@@ -29,17 +31,60 @@ cp .env.example .env     # put GEMINI_API_KEY=... in it
 npm start                # open http://127.0.0.1:5174/
 ```
 
-| Do this | What happens |
+## How to play
+
+The track is a loop: a start straight, a gentle left, a hill, a medium right
+over the crest, a long back straight, a sharp left-right chicane, a long
+gentle left, and the home straight. One lap takes about 25 seconds flat out
+and a minute or so if you're careful. Curves push the car outward; the grass
+slows you hard. Beat your best lap.
+
+**With the keyboard**
+
+| Key | Does |
 |---|---|
-| press ↑ (or Space) | you're driving; ← → steer, ↓ brakes, P pauses, R restarts, W says where you are |
-| type "I can't see the screen" | sounds guide you: a tone where the road's middle is (steer toward it), ticks on the side a curve is coming, a voice for curves, grass and laps; the car steers itself a little |
-| type "I get motion sick" | no camera shake, no horizon bob, the view leans less into curves |
-| type "I only have one hand" | single-switch: any key accelerates, the car steers itself |
-| type "I'm deaf" | every sound becomes an arrow or a line of text on screen |
-| type "make the game easier" | slower top speed, wider road, earlier warnings, fewer numbers |
-| type "bigger numbers" / "high contrast" | the HUD grows / black-white-yellow palette |
-| click 🎤 and say "go … left … left … brake" | the words act in about 200 ms; a model never sees them |
-| reload | it comes back adapted |
+| ↑ or Space | accelerate (also starts the race) |
+| ← → | steer |
+| ↓ | brake |
+| P | pause / resume |
+| R | restart from the start line |
+| W | say where you are |
+| Ctrl+Space | voice on / off |
+
+**With your voice** — click 🎤 Voice once; it keeps listening. Driving words
+act in about 200 ms and never go to a model:
+
+| Say | Does |
+|---|---|
+| "go" | start, and keep the accelerator down |
+| "left", "right" — "hard left", "hard right" | a nudge, or a bigger one |
+| "straight" | stop steering |
+| "faster", "slower" | accelerator down / off |
+| "brake", "stop" | brake |
+| "pause" | pause |
+| "where am I", "how fast" | the game tells you |
+| "restart", "help" | as they say |
+
+**Telling it what you need** — type or say a sentence; the model turns it
+into needs and the game adapts (and remembers across reloads):
+
+| Say | What happens |
+|---|---|
+| "I can't see the screen" | sounds guide you: a tone where the road's middle is (steer toward it), ticks on the side a curve is coming, a voice for curves, grass and laps; the car steers itself a little |
+| "I get motion sick" | no camera shake, no horizon bob, the view leans less into curves |
+| "I only have one hand" | single-switch: any key accelerates, the car steers itself |
+| "I'm deaf" | every sound becomes an arrow or a line of text on screen |
+| "make the game easier" | slower top speed, wider road, earlier warnings, fewer numbers |
+| "bigger numbers", "high contrast", "less assist", "turn off the commentary" | one setting at a time |
+| "what do the sounds mean?" | it explains |
+| "forget everything and start over" | profile cleared |
+
+**Playing by ear** — after "I can't see the screen": say "go". A low engine
+note rises with your speed. When you drift, a tone appears on the side the
+road's middle is; steer toward it until it goes quiet. It turns harsh when
+you're on the grass. Ticks on one side mean a curve is coming on that side;
+they speed up as it nears, and a voice says "sharp left ahead". The car
+helps you steer at first; say "less assist" when you've learned the sounds.
 
 ## How it is built
 
