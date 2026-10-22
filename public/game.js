@@ -44,7 +44,7 @@ function buildTrack() {
     for (let n = 0; n < leave; n++) add(ease.inOut(curve, 0, n / leave), ease.inOut(startY, endY, (enter + hold + n) / total), section);
   };
 
-  // About 1,500 segments: a lap takes 30–40 s flat out, a minute or so for a
+  // About 1,500 segments: a lap takes about 25 s flat out, a minute or so for a
   // careful driver, which is long enough for the sounds and words to matter.
   road(0, 150, 0, 0, 0, 'the start straight');
   road(40, 100, 40, -3, 0, 'the first left-hander');
